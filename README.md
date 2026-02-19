@@ -1,6 +1,3 @@
-@@ -1,91 +1,58 @@
-# 09 — Infrastructure as Code (Terraform)
-
 # 🚀 DataFlow Logistics — Cloudification Project
 Infraestrutura do projeto provisionada com **Terraform**: Azure + Databricks + Data Lake + ADF + Key Vault.
 
