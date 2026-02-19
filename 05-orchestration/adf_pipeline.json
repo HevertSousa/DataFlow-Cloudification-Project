@@ -1,0 +1,19 @@
+{
+  "name": "DataFlowIngestion",
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy MySQL -> ADLS",
+        "type": "Copy"
+      },
+      {
+        "name": "Copy DB2 -> ADLS",
+        "type": "Copy"
+      },
+      {
+        "name": "Trigger DBX Jobs",
+        "type": "Execution"
+      }
+    ]
+  }
+}
