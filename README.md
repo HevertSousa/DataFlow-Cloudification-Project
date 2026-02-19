@@ -18,7 +18,7 @@ flowchart LR
     ADF[Azure Data Factory / Workflows]
     ADLS[(Azure Data Lake Storage)]
     DBX[Databricks Lakehouse
-(Spark + Delta)]
+(Spark e Delta)]
     UC[Unity Catalog]
     PBI[Power BI]
 
