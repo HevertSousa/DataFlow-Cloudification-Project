@@ -89,5 +89,3 @@ As camadas e convenções estão em `02-datalake-design/`.
 MIT — veja `LICENSE`.
 
 ---
-
-> Dica: você pode copiar o conteúdo desta pasta para o seu repositório existente.
