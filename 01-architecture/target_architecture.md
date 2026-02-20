@@ -141,6 +141,7 @@ Incluindo:
 
 ## Arquitetura Lógica em Camadas
 
+```mermaid
 flowchart LR
   subgraph Sources[Fontes de Dados]
     A1[MySQL]:::db
@@ -203,10 +204,11 @@ flowchart LR
   classDef api fill:#ccffcc,stroke:#008000,color:#000;
   classDef file fill:#e0e0e0,stroke:#555,color:#000;
   classDef stream fill:#ccddff,stroke:#0044aa,color:#000;
-
+```
 
 ## Pipeline end-to-end
 
+```mermaid
 sequenceDiagram
     participant FNT as Fonte de Dados
     participant ING as Ingestion Layer
@@ -226,9 +228,9 @@ sequenceDiagram
 
     CUR->>GOV: Atualiza catálogo e lineage
     CUR->>SRV: Disponibiliza datasets (BI, APIs, ML)
-
+```
 ## Arquitetura Física (Genérica p/ Cloud)
-
+```mermaid
 flowchart TD
     subgraph Cloud[Ambiente Cloud]
         subgraph Network[VPC / VNets]
@@ -274,3 +276,4 @@ flowchart TD
     GLD --> DQ
 
     MET --> BI
+```
