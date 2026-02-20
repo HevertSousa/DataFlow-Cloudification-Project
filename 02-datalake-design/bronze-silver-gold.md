@@ -10,11 +10,11 @@ Este documento descreve o desenho do Data Lake em três camadas **Bronze → Sil
 
 - **Bronze (raw/ landing zone):**
 
-bronze/<dominio>/<tabela>/ingestion_date=YYYY-MM-DD/part-*.parquet
+bronze/dominio/tabela/ingestion_date=YYYY-MM-DD/part-*.parquet
 
 - **Silver (curated/conformed):**
 
-siver/<dominio>/<tabela>
+siver/dominio/tabela
 
 Com colunas padronizadas:
 
@@ -24,7 +24,7 @@ Com colunas padronizadas:
 
 - **Gold (analytics / marts/):**
 
-gold/<area_analitica>/<mart>/
+gold/area_analitica/mart/
 
 Modelado de forma **dimensional** (esquema em estrela: fatos e dimensões).
 
