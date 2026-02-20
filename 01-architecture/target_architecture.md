@@ -3,30 +3,21 @@
 
 ## 1.1 - Objetivo da Arquitetura
 
-A arquitetura dese projeto foi desenhada para demonstrar uma jornada completa de **cloudification de pipeline de dados**, cobrindo ingestão, transformaação, qualidade, 
+A arquitetura deste projeto foi desenhada para demonstrar uma jornada completa de **cloudification de pipeline de dados**, cobrindo ingestão, transformação, qualidade, 
 governança e disponibilização de dados em uma arquitetura moderna, escalável e resiliente. 
 
 O propósito deste módulo é: 
 - Fornecer **uma visão macro** da plataforma de dados proposta. 
 - Explicar as **decisões arquiteturais** adotadas. 
 - Descrever como os componentes se relacionam dentro do fluxo completo. 
-- Servir como base para os demais diretórios do portifólio (infra, ingestion, governance, pipelines etc).
+- Servir como base para os demais diretórios do portfólio (infra, ingestion, governance, pipelines etc).
 
 Diagramas e decisões de arquitetura.
 
 ## Visão Geral da arquitetura
 A arquitetura segue um padrão baseado em camadas, amplamente utilizado em projetos modernos de engenharia de dados.
 
-[ Fontes de Dados ]
-        ↓
-[ Ingestion Layer ]
-        ↓
-[ Transformation / Processing Layer ]
-        ↓
-[ Curated Zone (Silver/Gold) ]
-        ↓
-[Serving Layer / Analytics/ APIs]
-
+[Fontes] → [Ingestion] → [Bronze] → [Silver] → [Gold] → [Serviços]
 
 ## Diagrama Lógico
 ```mermaid
@@ -43,10 +34,10 @@ flowchart TB
   DBX --> UC[Unity Catalog]
 ```
 
-## Decisões (ADR)
-- **Formato de armazenamento**: Delta Lake para ACID + time travel.
-- **Orquestração**: ADF para conectividade híbrida e/ou DBX Workflows.
-- **Dados sensíveis**: Segredos via Databricks Secrets/Key Vault.
+### ADR-001 — Formato de armazenamento
+**Decisão:** Usar Delta Lake.  
+**Por quê:** Precisamos de ACID, time travel, merge otimizado e esquemas evolutivos.  
+**Impacto:** Pipelines mais confiáveis, governança mais forte, simplicidade na manutenção.
 
 ## Camadas Principais
 ### Ingestion Layer 
@@ -79,11 +70,11 @@ Ferramentas/abordagens típicas:
 - Spark / Pyspark
 - dbt
 - Beam
-- SQL engines Distribuídos
+- SQL engines distribuídos
 
 ### Governance & Quality Layer
 Composto por: 
-- Data quality rules(comleteness, validity, uniqueness...)
+- Data quality rules(completeness, validity, uniqueness...)
 - Data Lineage (rastreamento de origem → destino)
 - Data Contracts entre produtores e consumidores
 - Metadados técnicos e de negócios 
@@ -137,7 +128,7 @@ Incluindo:
 - Observabilidade completa do pipeline
 - Tratamento adequado de dados legados
 - Modularidade (cada diretório do repositório mostra um pedaço isolado)
-- Excelente como **portifólio profissional**
+- Excelente como **portfólio profissional**
 
 ## Arquitetura Lógica em Camadas
 
